@@ -1,19 +1,6 @@
-# Test NFT
+# Dynamic NFT Demo
 
-# Deploy ERC721
+# Deploy NFT
 ```
-yarn deploy --network rinkeby
-```
-
-```
-yarn deploy --network mumbai
-```
-
-# Mint ERC721
-```
-yarn mint --network rinkeby
-```
-
-```
-yarn mint --network mumbai
+yarn deploy:contract --network rinkeby
 ```
