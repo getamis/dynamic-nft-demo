@@ -1,20 +1,20 @@
 import { task } from "hardhat/config";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 
-task("mint", "mint NFTs")
+task("setBaseUri", "set base uri")
   .addParam("name", "The contract name", "DynamicNFT")
   .addParam("contract", "The contract address", "0x89e2a1d650597d77b766f6D2B8Ec0333dd91F8ED")
-  .addOptionalParam("to", "The destination address to receive NFT", "0xdd2c45b296C218779783c9AAF9f876391FA9aF53")
+  .addOptionalParam("baseUri", "The BaseUri", "ipfs://QmR57oqhbb9vDDgrS43hvMYgUExtLf35QtgXj4uPV81MYJ")
   .setAction(
     async (
       {
         name,
         contract,
-        to,
+        baseUri,
       }: {
         name: string;
         contract: string;
-        to?: string;
+        baseUri: string;
       },
       hre: HardhatRuntimeEnvironment
     ): Promise<void> => {
@@ -34,11 +34,11 @@ task("mint", "mint NFTs")
 
         const mintable = await ethers.getContractAt(name, contract);
 
-        console.log("Minting ....");
+        console.log("Setting base URI ....");
 
-        const tx = await mintable.mint(to || defaultAccount.address);
+        const tx = await mintable.setBaseURI(baseUri);
 
-        console.log(`Minted: ${tx.hash}`);
+        console.log(`Mined: ${tx.hash}`);
       } catch (e) {
         console.error(e);
       }

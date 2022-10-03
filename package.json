@@ -1,18 +1,18 @@
 {
   "scripts": {
     "deploy:contract": "yarn hardhat deployContract --name DynamicNFT",
-    "mint": "yarn hardhat mint"
+    "mint": "yarn hardhat mint",
+    "setBaseUri": "yarn hardhat setBaseUri"
   },
   "devDependencies": {
-    "@nomiclabs/hardhat-ganache": "^2.0.1",
-    "@openzeppelin/contracts": "^4.3.2",
     "@nomiclabs/hardhat-ethers": "^2.0.0",
+    "@nomiclabs/hardhat-ganache": "^2.0.1",
     "@nomiclabs/hardhat-waffle": "^2.0.0",
+    "@openzeppelin/contracts": "^4.3.2",
     "@types/chai": "^4.2.22",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.10.1",
     "chai": "^4.3.4",
-    "dotenv": "^10.0.0",
     "ethereum-waffle": "^3.0.0",
     "ethers": "^5.0.0",
     "hardhat": "^2.7.0",
@@ -20,5 +20,8 @@
     "ts-node": "^10.2.1",
     "typescript": "^4.4.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "ipfs-http-client": "55.0.0"
+  }
 }

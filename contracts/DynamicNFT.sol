@@ -13,7 +13,9 @@ contract DynamicNFT is Ownable, ERC721 {
     string private _contractUri;
     Counters.Counter private _tokenIdTracker;
 
-    constructor() ERC721("Dynamic NFT", "DNFT") {}
+    constructor() ERC721("Dynamic NFT", "DNFT") {
+        _baseUri = "ipfs://QmT6tmgyLVLR79TbXfsA86Sf8vfVPKsC6izK51k971Ntib";
+    }
 
     function mint(address to)
         public
@@ -31,6 +33,17 @@ contract DynamicNFT is Ownable, ERC721 {
     }
 
     function _baseURI() internal view virtual override returns (string memory) {
+        return _baseUri;
+    }
+
+    function tokenURI(uint256 tokenId)
+        public
+        view
+        virtual
+        override
+        returns (string memory)
+    {
+        require(_exists(tokenId), "ERC721: invalid token ID");
         return _baseUri;
     }
 
